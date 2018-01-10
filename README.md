@@ -102,16 +102,18 @@ Example configuration:
 /* ember-cli-build.js */
 let app = new EmberApp(defaults, {
   emotion: {
-    hoist: false,
-    sourceMap: false,
-    autoLabel: false,
-    extractStatic: false,
-    importedNames: {
-      styled: 'styled',
-      css: 'css',
-      keyframes: 'keyframes',
-      injectGlobal: 'injectGlobal',
-      merge: 'merge'
+    babel: {
+      hoist: false,
+      sourceMap: false,
+      autoLabel: false,
+      extractStatic: false,
+      importedNames: {
+        styled: 'styled',
+        css: 'css',
+        keyframes: 'keyframes',
+        injectGlobal: 'injectGlobal',
+        merge: 'merge'
+      }
     }
   }
 });

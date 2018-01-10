@@ -17,6 +17,7 @@ module.exports = {
     let opts = this.appOptions();
     opts.babel = opts.babel || {};
     opts.babel.plugins = opts.babel.plugins || [];
-    opts.babel.plugins.push(['emotion', opts.emotion || {}]);
+    let emotion = opts.emotion || {};
+    opts.babel.plugins.push(['emotion', emotion.babel || {}]);
   }
 };
