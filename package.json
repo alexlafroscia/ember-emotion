@@ -1,6 +1,6 @@
 {
   "name": "ember-emotion",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Work with emotion.js styling in Ember",
   "keywords": [
     "ember-addon",
@@ -15,8 +15,8 @@
     "test": "tests"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/alexlafroscia/ember-emotion.git"
+    "type": "git",
+    "url": "https://github.com/alexlafroscia/ember-emotion.git"
   },
   "scripts": {
     "build": "ember build",
