@@ -21,7 +21,7 @@ npm install --save-dev ember-emotion
 
 ## Usage
 
-There are two ways to use `emotion` in Ember:
+There are a few ways to use `emotion` in Ember:
 
 ### Pod Styles
 
@@ -50,6 +50,31 @@ export const paragraphClass = css`
 </p>
 ```
 
+### `css` helper
+
+A `css` helper is provided that can either create a class on the fly based on the properties passed to it, or compose a class name from those passed to the helper.
+
+See the [`emotion` "object styles" documentation][emotion-object-styles] for more information.
+
+```javascript
+// components/foo-bar/styles.js
+import { css } from 'emotion';
+
+export const redText = css`
+  color: red;
+`;
+export const blueBackground = css`
+  background-color: blue;
+`;
+```
+
+```hbs
+{{! components/foo-bar/template.hbs }}
+<p class={{css redText blueBackground border='1px solid black'}}>
+  This has red text, a blue background, and a solid black border
+</p>
+```
+
 ### Just the base element
 
 If you just want to generate a class to apply to the base element of your class, you can import `emotion` directly to create it
@@ -73,3 +98,4 @@ export default Component.extend({
 - You can always generate multiple `emotion` class names in the `component.js` and set them manually as properties if you don't want to manage a separate `styles.js` file
 
 [emotion]: https://github.com/emotion-js/emotion
+[emotion-object-styles]: https://emotion.sh/docs/object-styles
