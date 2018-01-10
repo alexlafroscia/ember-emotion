@@ -28,7 +28,7 @@ There are two ways to use `emotion` in Ember:
 If you define a `style.js` within a component pod, each exported class is made available to the template. The default export is applied to the base element, and the rest become properties on the component so they can be used to dynamically set class names.
 
 ```javascript
-// components/foo-bar/component.js
+// components/foo-bar/styles.js
 import { css } from 'emotion';
 
 const baseElementClass = css`
@@ -42,9 +42,9 @@ export const paragraphClass = css`
 ```
 
 ```hbs
-{{!-- components/foo-bar/styles.js
+{{!-- components/foo-bar/template.hbs
       The background of the whole component be grey,
-      because of the default export above }}
+      because of the default export above --}}
 <p class={{paragraphClass}}>
   This text will be blue
 </p>
