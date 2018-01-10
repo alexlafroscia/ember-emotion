@@ -92,6 +92,33 @@ export default Component.extend({
 });
 ```
 
+## Configure emotion's babel plugin
+
+Many additional options are supported, optionally, via [babel-plugin-emotion][babel-plugin-emotion].  By default, all options are disabled with exception to whitespace trimming (default).
+
+Example configuration:
+
+```js
+/* ember-cli-build.js */
+let app = new EmberApp(defaults, {
+  emotion: {
+    babel: {
+      hoist: false,
+      sourceMap: false,
+      autoLabel: false,
+      extractStatic: false,
+      importedNames: {
+        styled: 'styled',
+        css: 'css',
+        keyframes: 'keyframes',
+        injectGlobal: 'injectGlobal',
+        merge: 'merge'
+      }
+    }
+  }
+});
+```
+
 ## Notes
 
 - If you need the `emotion` styles to be applied during an integration test, be sure to import the initializer function and run it
@@ -99,3 +126,4 @@ export default Component.extend({
 
 [emotion]: https://github.com/emotion-js/emotion
 [emotion-object-styles]: https://emotion.sh/docs/object-styles
+[babel-plugin-emotion]: https://github.com/emotion-js/emotion/tree/master/packages/babel-plugin-emotion
