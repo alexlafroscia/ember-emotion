@@ -2,6 +2,8 @@
 
 > Use [emotion][emotion] styling in Ember.js
 
+[![npm version](https://badge.fury.io/js/ember-emotion.svg)](https://www.npmjs.com/package/ember-emotion)
+
 This addon
 
 - Exposes `emotion` as a module that can be imported in Ember
