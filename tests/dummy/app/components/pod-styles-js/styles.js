@@ -1,12 +1,14 @@
 import { css } from 'emotion';
 
-const componentClass = css`
+export default css`
   background-color: grey;
   padding: 1em;
 `;
 
-export default componentClass;
-
 export const paragraphClass = css`
   color: blue;
+`;
+
+export const excessiveWhitespaceClass = css`
+       background-color: grey;      padding: 1em;
 `;
