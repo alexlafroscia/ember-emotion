@@ -1,26 +1,73 @@
 # ember-emotion
 
-This README outlines the details of collaborating on this Ember addon.
+> Use [emotion][emotion] styling in Ember.js
+
+This addon
+
+- Exposes `emotion` as a module that can be imported in Ember
+- Adds the ability to define a file of scoped styles for pod components
 
 ## Installation
 
-* `git clone <repository-url>` this repository
-* `cd ember-emotion`
-* `npm install`
+```bash
+ember install ember-emotion
+# or
+yarn add -D ember-emotion
+# or
+npm install --save-dev ember-emotion
+```
 
-## Running
+## Usage
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+There are two ways to use `emotion` in Ember:
 
-## Running Tests
+### Pod Styles
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+If you define a `style.js` within a component pod, each exported class is made available to the template. The default export is applied to the base element, and the rest become properties on the component so they can be used to dynamically set class names.
 
-## Building
+```javascript
+// components/foo-bar/component.js
+import { css } from 'emotion';
 
-* `ember build`
+const baseElementClass = css`
+  background: grey;
+`;
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+export default baseElementClass;
+export const paragraphClass = css`
+  color: blue;
+`;
+```
+
+```hbs
+{{!-- components/foo-bar/styles.js
+      The background of the whole component be grey,
+      because of the default export above }}
+<p class={{paragraphClass}}>
+  This text will be blue
+</p>
+```
+
+### Just the base element
+
+If you just want to generate a class to apply to the base element of your class, you can import `emotion` directly to create it
+
+```javascript
+import Component from '@ember/component';
+import { css } from 'emotion';
+
+const generatedClassName = css`
+  color: red;
+`;
+
+export default Component.extend({
+  classNames: [generatedClassName];
+});
+```
+
+## Notes
+
+- If you need the `emotion` styles to be applied during an integration test, be sure to import the initializer function and run it
+- You can always generate multiple `emotion` class names in the `component.js` and set them manually as properties if you don't want to manage a separate `styles.js` file
+
+[emotion]: https://github.com/emotion-js/emotion
