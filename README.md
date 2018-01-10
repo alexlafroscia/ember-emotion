@@ -26,7 +26,7 @@ There are a few ways to use `emotion` in Ember:
 
 ### Pod Styles
 
-If you define a `style.js` within a component pod, each exported class is made available to the template. The default export is applied to the base element, and the rest become properties on the component so they can be used to dynamically set class names.
+If you define a `styles.js` within a component pod, each exported class is made available to the template. The default export is applied to the base element, and the rest become properties on the component so they can be used to dynamically set class names.
 
 ```javascript
 // components/foo-bar/styles.js
