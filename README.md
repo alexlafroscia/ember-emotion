@@ -2,6 +2,7 @@
 
 > Use [emotion][emotion] styling in Ember.js
 
+[![Build Status](https://travis-ci.org/alexlafroscia/ember-emotion.svg?branch=master)](https://travis-ci.org/alexlafroscia/ember-emotion)
 [![npm version](https://badge.fury.io/js/ember-emotion.svg)](https://www.npmjs.com/package/ember-emotion)
 
 This addon
@@ -31,11 +32,10 @@ If you define a `style.js` within a component pod, each exported class is made a
 // components/foo-bar/styles.js
 import { css } from 'emotion';
 
-const baseElementClass = css`
+export default css`
   background: grey;
 `;
 
-export default baseElementClass;
 export const paragraphClass = css`
   color: blue;
 `;
