@@ -2,7 +2,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 import { css } from 'emotion';
 
-moduleForComponent('css', 'helper:css', {
+moduleForComponent('css', 'Integration | Helper | css', {
   integration: true
 });
 

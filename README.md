@@ -121,7 +121,6 @@ let app = new EmberApp(defaults, {
 
 ## Notes
 
-- If you need the `emotion` styles to be applied during an integration test, be sure to import the initializer function and run it
 - You can always generate multiple `emotion` class names in the `component.js` and set them manually as properties if you don't want to manage a separate `styles.js` file
 
 [emotion]: https://github.com/emotion-js/emotion
