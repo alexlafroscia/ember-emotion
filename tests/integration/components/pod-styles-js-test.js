@@ -2,10 +2,13 @@ import emotion from 'emotion';
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 
-import componentClassName, {
+import * as allStyles from 'dummy/components/pod-styles-js/styles';
+
+const {
+  default: componentClassName,
   paragraph,
   excessiveWhitespaceClass
-} from 'dummy/components/pod-styles-js/styles';
+} = allStyles;
 
 moduleForComponent('pod-styles-js', 'Integration | Component | pod styles', {
   integration: true
@@ -21,6 +24,16 @@ test('it exposes other exports as properties', function(assert) {
   this.render(hbs`{{pod-styles-js}}`);
 
   assert.ok(this.$('p').hasClass(paragraph));
+});
+
+test('it injects the styles into the registry after the initial lookup', function(assert) {
+  this.render(hbs`{{pod-styles-js}}`);
+
+  const registeredStylesClass = this.registry.resolve(
+    'emotion-style:component__pod-styles-js'
+  );
+
+  assert.deepEqual(registeredStylesClass, allStyles);
 });
 
 test('it strips whitespacing', function(assert) {
