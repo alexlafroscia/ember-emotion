@@ -1,5 +1,18 @@
 <p class={{emotion-class 'paragraph'}}>This text should be blue.</p>
 
-<p class={{css (emotion-class 'paragraph') (emotion-class 'bold')}}>
-  This text should be blue and bold
+<p class={{css
+    (emotion-class 'paragraph')
+    (emotion-class 'bold')
+  }}
+>
+  This text should be blue and bold (css helper)
+</p>
+
+<p class={{cx
+    (emotion-class 'paragraph')
+    (emotion-class 'red')
+    (emotion-class 'bold')
+  }}
+>
+  This text should be red and bold (cx helper)
 </p>
