@@ -39,3 +39,23 @@ test('it can compose multiple positional params', function(assert) {
   assert.equal(this.$('p').css('color'), 'rgb(255, 0, 0)');
   assert.equal(this.$('p').css('backgroundColor'), 'rgb(0, 0, 255)');
 });
+
+test('it works with the `emotion-class` helper', function(assert) {
+  this.set('__emotion__styles__', {
+    foo: css`
+      color: red;
+    `,
+    bar: css`
+      background: blue;
+    `
+  });
+
+  this.render(hbs`
+    <p class={{css (emotion-class 'foo') (emotion-class 'bar')}}>
+      This text should be red
+    </p>
+  `);
+
+  assert.equal(this.$('p').css('color'), 'rgb(255, 0, 0)');
+  assert.equal(this.$('p').css('backgroundColor'), 'rgb(0, 0, 255)');
+});

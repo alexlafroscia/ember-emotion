@@ -28,7 +28,9 @@
     "babel-plugin-emotion": "^8.0.12",
     "broccoli-merge-trees": "^2.0.0",
     "ember-cli-babel": "^6.6.0",
-    "emotion": "^8.0.12"
+    "ember-cli-version-checker": "^2.1.0",
+    "emotion": "^8.0.12",
+    "semver": "^5.4.1"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -45,6 +47,7 @@
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
+    "ember-qunit-assert-helpers": "^0.2.1",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.18.0",
     "eslint": "^4.15.0",

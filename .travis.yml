@@ -5,7 +5,8 @@ node_js:
   # so that your addon works for all apps
   - "4"
 
-sudo: false
+# Fix issue with Chrome not starting correctly
+sudo: required
 dist: trusty
 
 addons:

@@ -5,7 +5,7 @@ export default css`
   padding: 1em;
 `;
 
-export const paragraphClass = css`
+export const paragraph = css`
   color: blue;
 `;
 

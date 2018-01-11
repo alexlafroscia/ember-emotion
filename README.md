@@ -36,7 +36,7 @@ export default css`
   background: grey;
 `;
 
-export const paragraphClass = css`
+export const paragraph = css`
   color: blue;
 `;
 ```
@@ -45,7 +45,7 @@ export const paragraphClass = css`
 {{!-- components/foo-bar/template.hbs
       The background of the whole component be grey,
       because of the default export above --}}
-<p class={{paragraphClass}}>
+<p class={{emotion-class 'paragraph'}}>
   This text will be blue
 </p>
 ```
@@ -70,7 +70,12 @@ export const blueBackground = css`
 
 ```hbs
 {{! components/foo-bar/template.hbs }}
-<p class={{css redText blueBackground border='1px solid black'}}>
+<p class={{css
+    (emotion-class 'redText')
+    (emotion-class 'blueBackground')
+    border='1px solid black'
+  }}
+>
   This has red text, a blue background, and a solid black border
 </p>
 ```

@@ -10,13 +10,6 @@ export default Mixin.create({
 
     const styles = get(this, '__emotion__styles__');
 
-    // Expose exported values to the template
-    for (const prop of Object.keys(styles)) {
-      if (prop !== 'default') {
-        this.set(prop, styles[prop]);
-      }
-    }
-
     // Set the default export as a class on the component
     if (styles.default) {
       set(this, 'classNames', [styles.default]);
