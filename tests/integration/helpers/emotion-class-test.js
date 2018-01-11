@@ -6,13 +6,13 @@ moduleForComponent('emotion-class', 'Integration | Helper | emotion-class', {
 });
 
 test('it throws an error if the emotion styles are not defined', function(assert) {
-  assert.throws(() => {
+  assert.expectAssertion(() => {
     this.render(hbs`{{emotion-class 'foo'}}`);
   }, 'Missing styles lookup object');
 });
 
 test('it throws an error if the emotion class name is not provided', function(assert) {
-  assert.throws(() => {
+  assert.expectAssertion(() => {
     this.render(hbs`{{emotion-class}}`);
   }, 'A class name must be provided');
 });
