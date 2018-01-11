@@ -17,12 +17,18 @@ test('it produces a class name from the named params', function(assert) {
 });
 
 test('it can compose multiple positional params', function(assert) {
-  this.set('firstEmotionClass', css`
-    color: red;
-  `);
-  this.set('secondEmotionClass', css`
-    background: blue;
-  `);
+  this.set(
+    'firstEmotionClass',
+    css`
+      color: red;
+    `
+  );
+  this.set(
+    'secondEmotionClass',
+    css`
+      background: blue;
+    `
+  );
 
   this.render(hbs`
     <p class={{css firstEmotionClass secondEmotionClass}}>

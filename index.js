@@ -6,7 +6,9 @@ module.exports = {
   name: 'ember-emotion',
 
   appOptions() {
-    return (this.parent && this.parent.options) || (this.app && this.app.options);
+    return (
+      (this.parent && this.parent.options) || (this.app && this.app.options)
+    );
   },
 
   included() {

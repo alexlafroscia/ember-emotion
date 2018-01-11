@@ -10,5 +10,6 @@ export const paragraphClass = css`
 `;
 
 export const excessiveWhitespaceClass = css`
-       background-color: grey;      padding: 1em;
+  background-color: grey;
+  padding: 1em;
 `;

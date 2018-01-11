@@ -19,9 +19,7 @@ export default Mixin.create({
 
     // Set the default export as a class on the component
     if (styles.default) {
-      set(this, 'classNames', [
-        styles.default
-      ]);
+      set(this, 'classNames', [styles.default]);
     }
   },
 
@@ -29,7 +27,9 @@ export default Mixin.create({
     const key = this._debugContainerKey;
     assert('Must be applied to component in the registry', !!key);
 
-    const { modulePrefix } = getOwner(this).resolveRegistration('config:environment');
+    const { modulePrefix } = getOwner(this).resolveRegistration(
+      'config:environment'
+    );
     const componentName = key.replace('component:', '');
     const styleModuleName = `${modulePrefix}/components/${componentName}/styles`;
 

@@ -2,7 +2,10 @@ import emotion from 'emotion';
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 
-import componentClassName, { paragraphClass, excessiveWhitespaceClass } from 'dummy/components/pod-styles-js/styles';
+import componentClassName, {
+  paragraphClass,
+  excessiveWhitespaceClass
+} from 'dummy/components/pod-styles-js/styles';
 
 moduleForComponent('pod-styles-js', 'Integration | Component | pod styles', {
   integration: true

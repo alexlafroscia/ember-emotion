@@ -48,9 +48,12 @@
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.18.0",
     "eslint": "^4.15.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-ember": "^5.0.0",
     "eslint-plugin-node": "^5.2.1",
-    "loader.js": "^4.2.3"
+    "eslint-plugin-prettier": "^2.4.0",
+    "loader.js": "^4.2.3",
+    "prettier": "^1.10.1"
   },
   "peerDependencies": {
     "ember-cli": ">= 2.15.0"
