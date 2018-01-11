@@ -1,8 +1,8 @@
+/* global require */
+
 import Mixin from '@ember/object/mixin';
 import { computed, get, set } from '@ember/object';
-import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
-import require from 'require';
 
 export default Mixin.create({
   init() {
@@ -20,11 +20,16 @@ export default Mixin.create({
     const key = this._debugContainerKey;
     assert('Must be applied to component in the registry', !!key);
 
-    const { modulePrefix } = getOwner(this).resolveRegistration(
-      'config:environment'
+    const module = Object.values(require._eak_seen).find(
+      module => get(module, 'module.exports.default') === this.constructor
     );
-    const componentName = key.replace('component:', '');
-    const styleModuleName = `${modulePrefix}/components/${componentName}/styles`;
+
+    // We couldn't find the module; abort
+    if (!module) {
+      return {};
+    }
+
+    const styleModuleName = module.id.replace(/component$/, 'styles');
 
     try {
       return require(styleModuleName);
