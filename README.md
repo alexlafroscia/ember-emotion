@@ -3,7 +3,9 @@
 > Use [emotion][emotion] styling in Ember.js
 
 [![Build Status](https://travis-ci.org/alexlafroscia/ember-emotion.svg?branch=master)](https://travis-ci.org/alexlafroscia/ember-emotion)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-emotion.svg)](https://emberobserver.com/addons/ember-emotion)
 [![npm version](https://badge.fury.io/js/ember-emotion.svg)](https://www.npmjs.com/package/ember-emotion)
+![Ember Version](https://embadge.io/v1/badge.svg?start=2.12.0)
 
 This addon
 
