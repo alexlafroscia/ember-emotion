@@ -51,9 +51,13 @@ export default Mixin.create({
       return cachedStylesLookup;
     }
 
-    const module = Object.values(require._eak_seen).find(
-      module => get(module, 'module.exports.default') === this.constructor
-    );
+    const module = Object.values(require._eak_seen).find(module => {
+      const exportedClass = get(module, 'module.exports.default');
+
+      if (exportedClass && exportedClass.detectInstance) {
+        return exportedClass.detectInstance(this);
+      }
+    });
 
     // If the module doesn't exist or isn't within a pod that supports a style
     // file, abort (and cache an empty object to avoid this work in the future)
