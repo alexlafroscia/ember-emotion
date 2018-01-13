@@ -1,23 +1,22 @@
 /* global require */
 
 import Mixin from '@ember/object/mixin';
-import { computed, get, set } from '@ember/object';
+import { computed, get, getWithDefault, set } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
 
 const VALID_STYLE_MODULE_PATTERN = /(component|controller)$/;
 
 export default Mixin.create({
-  classNameBindings: ['__default__emotion__class__'],
-  __default__emotion__class__: undefined,
-
   init() {
     this._super();
 
     const styles = get(this, '__emotion__styles__');
 
     if (styles.default) {
-      set(this, '__default__emotion__class__', styles.default);
+      const classNames = getWithDefault(this, 'classNames', []);
+
+      set(this, 'classNames', [styles.default, ...classNames]);
     }
   },
 

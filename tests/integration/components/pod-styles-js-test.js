@@ -15,9 +15,16 @@ moduleForComponent('pod-styles-js', 'Integration | Component | pod styles', {
 });
 
 test('it sets the default exported class on the root element', function(assert) {
-  this.render(hbs`{{pod-styles-js}}`);
+  this.render(hbs`{{pod-styles-js classNames='foobar'}}`);
 
-  assert.ok(this.$('div').hasClass(componentClassName));
+  assert.ok(
+    this.$('div').hasClass(componentClassName),
+    'It has the default exported class'
+  );
+  assert.ok(
+    this.$('div').hasClass('foobar'),
+    'It has class set from the properties'
+  );
 });
 
 test('it exposes other exports as properties', function(assert) {
