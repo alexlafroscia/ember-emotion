@@ -4,11 +4,13 @@ const EmberAddon = require('ember-cli/lib/broccoli/ember-addon');
 
 module.exports = function(defaults) {
   let app = new EmberAddon(defaults, {
+    snippetPaths: ['tests/dummy/app/components/code-example'],
+
     emotion: {
       babel: {
         hoist: false,
         sourceMap: false,
-        autoLabel: false,
+        autoLabel: EmberAddon.env() !== 'production',
         extractStatic: false,
         importedNames: {
           styled: 'styled',

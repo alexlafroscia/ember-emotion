@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'dummy',
     environment,
-    rootURL: '/',
+    rootURL: '/ember-emotion/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
