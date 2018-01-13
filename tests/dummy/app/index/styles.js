@@ -5,6 +5,8 @@ export const wrapper = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
+  max-width: 800px;
 
   > *:not(:last-child) {
     margin-bottom: 24px;

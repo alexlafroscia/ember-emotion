@@ -1,6 +1,6 @@
 // components/code-example/styles.js
 import { css } from 'emotion';
-import { orange } from '../../style/theme';
+import { blue, orange } from '../../style/theme';
 
 const spacer = '0.5em';
 
@@ -13,11 +13,20 @@ export default css`
     padding: ${spacer};
     margin: ${spacer} 0 0 0;
   }
+
+  .hljs-string {
+    color: ${orange};
+  }
+
+  .hljs-number {
+    color: ${blue};
+  }
 `;
 
 export const banner = css`
   background-color: ${orange};
-  padding: 0.1em ${spacer};
+  color: white;
+  padding: 0.2em ${spacer};
   position: absolute;
   right: 0;
 `;

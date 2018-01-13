@@ -4,10 +4,10 @@ import { black, blue, pink } from '../../style/theme';
 export default css`
   background: linear-gradient(to bottom, ${blue} 0%, ${pink} 100%);
   box-sizing: border-box;
-  min-height: 100vh;
-  padding: 16px;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+  padding: 16px;
 `;
 
 export const blackBackground = css`
