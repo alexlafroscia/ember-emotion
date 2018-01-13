@@ -1,8 +1,13 @@
+{{#in-head}}
+  <title>ember-emotion</title>
+  <description>emotion styles in Ember.js</description>>
+{{/in-head}}
+
 <div class={{emotion-class 'wrapper'}}>
   <div class={{emotion-class 'icons'}}>
-    <img class={{emotion-class 'emberLogo'}} src="/ember-emotion/images/ember-logo.png">
+    <img class={{emotion-class 'emberLogo'}} src={{asset-path 'images/ember-logo.png'}}>
     <span class={{emotion-class 'joiner'}}></span>
-    <img class={{emotion-class 'emotionLogo'}} src="/ember-emotion/images/emotion-logo.png">
+    <img class={{emotion-class 'emotionLogo'}} src={{asset-path 'images/emotion-logo.png'}}>
   </div>
 
   <p class={{emotion-class 'description'}}>

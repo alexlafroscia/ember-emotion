@@ -2374,6 +2374,13 @@ ember-export-application-global@^2.0.0:
   dependencies:
     ember-cli-babel "^6.0.0-beta.7"
 
+ember-head@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/ember-head/-/ember-head-0.1.0.tgz#6765574a04e19aad9f2d68efab46d2ff4eb6f897"
+  dependencies:
+    ember-cli-babel "^6.6.0"
+    ember-cli-htmlbars "^2.0.1"
+
 ember-load-initializers@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-load-initializers/-/ember-load-initializers-1.0.0.tgz#4919eaf06f6dfeca7e134633d8c05a6c9921e6e7"
