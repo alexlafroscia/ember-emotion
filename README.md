@@ -1,6 +1,6 @@
 # ember-emotion
 
-> Use [emotion][emotion] styling in Ember.js
+> Use [emotion][emotion] in Ember.js
 
 [![Build Status](https://travis-ci.org/alexlafroscia/ember-emotion.svg?branch=master)](https://travis-ci.org/alexlafroscia/ember-emotion)
 [![Ember Observer Score](https://emberobserver.com/badges/ember-emotion.svg)](https://emberobserver.com/addons/ember-emotion)
@@ -24,11 +24,7 @@ npm install --save-dev ember-emotion
 
 ## Usage
 
-There are a few ways to use `emotion` in Ember:
-
-### Pod Styles
-
-If you define a `styles.js` within a component pod, each exported class is made available to the template. The default export is applied to the base element, and the rest become properties on the component so they can be used to dynamically set class names.
+The basic way to use `ember-emotion` is to define a `styles.js` file within a `Component` or `Controller` pod.
 
 ```javascript
 // components/foo-bar/styles.js
@@ -43,6 +39,10 @@ export const paragraph = css`
 `;
 ```
 
+If the module has a default export, that class will be applied to the root element of the component (for a controller, this is ignored).
+
+All other exported classes can be access through the `emotion-class` helper in the template for the pod.
+
 ```hbs
 {{!-- components/foo-bar/template.hbs
       The background of the whole component be grey,
@@ -52,52 +52,7 @@ export const paragraph = css`
 </p>
 ```
 
-### `css` helper
-
-A `css` helper is provided that can either create a class on the fly based on the properties passed to it, or compose a class name from those passed to the helper.
-
-See the [`emotion` "object styles" documentation][emotion-object-styles] for more information.
-
-```javascript
-// components/foo-bar/styles.js
-import { css } from 'emotion';
-
-export const redText = css`
-  color: red;
-`;
-export const blueBackground = css`
-  background-color: blue;
-`;
-```
-
-```hbs
-{{! components/foo-bar/template.hbs }}
-<p class={{css
-    (emotion-class 'redText')
-    (emotion-class 'blueBackground')
-    border='1px solid black'
-  }}
->
-  This has red text, a blue background, and a solid black border
-</p>
-```
-
-### Just the base element
-
-If you just want to generate a class to apply to the base element of your class, you can import `emotion` directly to create it
-
-```javascript
-import Component from '@ember/component';
-import { css } from 'emotion';
-
-const generatedClassName = css`
-  color: red;
-`;
-
-export default Component.extend({
-  classNames: [generatedClassName];
-});
-```
+For more usage information, [check out the wiki](https://github.com/alexlafroscia/ember-emotion/wiki).
 
 ## Configure emotion's babel plugin
 

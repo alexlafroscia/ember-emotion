@@ -1,7 +1,7 @@
 {
   "name": "ember-emotion",
   "version": "1.3.0",
-  "description": "Work with emotion.js styling in Ember",
+  "description": "Work with emotion.js in Ember",
   "keywords": [
     "ember-addon",
     "style",
@@ -9,9 +9,12 @@
     "scoped-styles"
   ],
   "license": "MIT",
-  "author": "",
+  "author": {
+    "name": "Alex LaFroscia",
+    "email": "alex@lafroscia.com"
+  },
+  "homepage": "http://alexlafroscia.com/ember-emotion/",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "repository": {
