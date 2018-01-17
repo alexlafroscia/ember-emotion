@@ -81,10 +81,9 @@ let app = new EmberApp(defaults, {
 });
 ```
 
-## Notes
+## Caveats
 
 - You _must_ have a `component.js` or `controller.js` file in your pod for the `emotion` styles to work, even if it just re-exports the default implementation
-- You can always generate multiple `emotion` class names in the `component.js` and set them manually as properties if you don't want to manage a separate `styles.js` file
 
 [emotion]: https://github.com/emotion-js/emotion
 [emotion-object-styles]: https://emotion.sh/docs/object-styles
