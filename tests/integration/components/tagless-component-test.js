@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import * as allStyles from 'dummy/components/tagless-component/styles';
+import * as allStyles from 'dummy/components/tagless-component/style';
 
 moduleForComponent(
   'tagless-component',

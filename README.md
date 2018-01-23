@@ -11,16 +11,15 @@ This addon
 
 - Exposes `emotion` as a module that can be imported in Ember
 - Adds the ability to define a file of scoped styles for pod components
+- Provides some template helpers for working with `emotion`
 
 ## Installation
 
 ```bash
 ember install ember-emotion
-# or
-yarn add -D ember-emotion
-# or
-npm install --save-dev ember-emotion
 ```
+
+Make sure that the changes to your `resolver.js` file were applied; your resolver must include the [provided mixin](blueprints/ember-emotion/files/resolver.js)
 
 ## Usage
 

@@ -1,9 +1,8 @@
 import { moduleFor, test } from 'ember-qunit';
-import * as allControllerStyles from 'dummy/index/styles';
+import * as allControllerStyles from 'dummy/index/style';
 
 moduleFor('controller:index', 'Unit | Styling controllers', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  needs: ['style:index']
 });
 
 test('it injects the `styles` object into the controller', function(assert) {

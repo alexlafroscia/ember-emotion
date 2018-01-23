@@ -1,11 +1,7 @@
-/* global require */
-
 import Mixin from '@ember/object/mixin';
 import { computed, get, getWithDefault, set } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { assert } from '@ember/debug';
-
-const VALID_STYLE_MODULE_PATTERN = /(component|controller)$/;
 
 export default Mixin.create({
   init() {
@@ -13,7 +9,7 @@ export default Mixin.create({
 
     const styles = get(this, '__emotion__styles__');
 
-    if (styles.default) {
+    if (typeof styles.default === 'string') {
       const classNames = getWithDefault(this, 'classNames', []);
 
       set(this, 'classNames', [styles.default, ...classNames]);
@@ -40,45 +36,13 @@ export default Mixin.create({
     assert('Emotion-enabled component must have a registry key', !!key);
 
     const owner = getOwner(this);
-    const emotionStyleRegistryKey = `emotion-style:${key.replace(':', '__')}`;
+    const [type, styleModuleKeyBase] = key.split(':');
+    let styleModuleKey = styleModuleKeyBase;
 
-    const cachedStylesLookup = owner.resolveRegistration(
-      emotionStyleRegistryKey
-    );
-
-    if (cachedStylesLookup) {
-      return cachedStylesLookup;
+    if (type === 'component') {
+      styleModuleKey = `components/${styleModuleKeyBase}`;
     }
 
-    const module = Object.values(require._eak_seen).find(module => {
-      const exportedClass = get(module, 'module.exports.default');
-
-      if (exportedClass && exportedClass.detectInstance) {
-        return exportedClass.detectInstance(this);
-      }
-    });
-
-    // If the module doesn't exist or isn't within a pod that supports a style
-    // file, abort (and cache an empty object to avoid this work in the future)
-    if (!module || !VALID_STYLE_MODULE_PATTERN.test(module.id)) {
-      owner.register(emotionStyleRegistryKey, {});
-
-      return {};
-    }
-
-    const styleModuleName = module.id.replace(
-      VALID_STYLE_MODULE_PATTERN,
-      'styles'
-    );
-
-    try {
-      const styleModule = require(styleModuleName);
-
-      owner.register(emotionStyleRegistryKey, styleModule);
-
-      return styleModule;
-    } catch (e) {
-      return {};
-    }
+    return owner.resolveRegistration(`style:${styleModuleKey}`) || {};
   })
 });
