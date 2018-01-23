@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import * as allStyles from 'dummy/components/with-class-name-bindings/styles';
+import * as allStyles from 'dummy/components/with-class-name-bindings/style';
 
 moduleForComponent(
   'with-class-name-bindings',

@@ -2,7 +2,7 @@ import emotion from 'emotion';
 import hbs from 'htmlbars-inline-precompile';
 import { moduleForComponent, test } from 'ember-qunit';
 
-import * as allStyles from 'dummy/components/pod-styles-js/styles';
+import * as allStyles from 'dummy/components/pod-styles-js/style';
 
 const {
   default: componentClassName,
@@ -31,16 +31,6 @@ test('it exposes other exports as properties', function(assert) {
   this.render(hbs`{{pod-styles-js}}`);
 
   assert.ok(this.$('p').hasClass(paragraph));
-});
-
-test('it injects the styles into the registry after the initial lookup', function(assert) {
-  this.render(hbs`{{pod-styles-js}}`);
-
-  const registeredStylesClass = this.registry.resolve(
-    'emotion-style:component__pod-styles-js'
-  );
-
-  assert.deepEqual(registeredStylesClass, allStyles);
 });
 
 test('it strips whitespacing', function(assert) {
