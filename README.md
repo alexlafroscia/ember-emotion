@@ -19,7 +19,7 @@ This addon
 ember install ember-emotion
 ```
 
-Make sure that the changes to your `resolver.js` file were applied; your resolver must include the [provided mixin](blueprints/ember-emotion/files/resolver.js)
+Make sure that the changes to your `resolver.js` file were applied; your resolver must include the [provided mixin](blueprints/ember-emotion/files/app/resolver.js)
 
 ## Usage
 
