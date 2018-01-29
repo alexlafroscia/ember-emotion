@@ -35,7 +35,7 @@ test('it exposes other exports as properties', function(assert) {
 
 test('it strips whitespacing', function(assert) {
   assert.equal(
-    emotion.registered[excessiveWhitespaceClass],
+    emotion.caches.registered[excessiveWhitespaceClass],
     'background-color:grey;padding:1em;'
   );
 });

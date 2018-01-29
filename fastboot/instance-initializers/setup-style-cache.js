@@ -12,7 +12,10 @@ export function initialize(application) {
   // Generate the styles that we need to inject into the page
   scheduleOnce('afterRender', function() {
     const style = document.createElement('style');
-    const css = emotion.sheet.sheet.reduce((acc, style) => acc + style, '');
+    const css = Object.values(emotion.caches.inserted).reduce(
+      (acc, style) => acc + style,
+      ''
+    );
 
     style.type = 'text/css';
     if (style.styleSheet) {
@@ -22,7 +25,10 @@ export function initialize(application) {
     }
 
     // Put IDs into showboe for re-hydration
-    shoebox.put(FASTBOOT_STYLE_CACHE_NAME, Object.keys(emotion.inserted));
+    shoebox.put(
+      FASTBOOT_STYLE_CACHE_NAME,
+      Object.keys(emotion.caches.inserted)
+    );
 
     document.head.appendChild(style);
   });

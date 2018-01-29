@@ -29,12 +29,12 @@
     "test": "ember try:each"
   },
   "dependencies": {
-    "babel-plugin-emotion": "^8.0.12",
+    "babel-plugin-emotion": "9.0.0-3",
     "broccoli-funnel": "^2.0.1",
     "broccoli-merge-trees": "^2.0.0",
     "ember-cli-babel": "^6.6.0",
     "ember-cli-version-checker": "^2.1.0",
-    "emotion": "^8.0.12",
+    "emotion": "9.0.0-3",
     "semver": "^5.4.1"
   },
   "devDependencies": {
