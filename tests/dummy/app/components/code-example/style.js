@@ -1,4 +1,4 @@
-// components/code-example/styles.js
+// components/code-example/style.js
 import { css } from 'emotion';
 import { blue, orange } from '../../style/theme';
 
