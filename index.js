@@ -1,6 +1,7 @@
 'use strict';
 
 const MergeTrees = require('broccoli-merge-trees');
+const Funnel = require('broccoli-funnel');
 const VersionChecker = require('ember-cli-version-checker');
 
 const HtmlbarsPlugin = require('./lib/htmlbars-plugin');
@@ -12,6 +13,20 @@ module.exports = {
     this._super.init && this._super.init.apply(this, arguments);
 
     this.checker = new VersionChecker(this);
+  },
+
+  /**
+   * Return the root of the consuming application, regardless of whether that's
+   * an Addon's dummy app or a real application
+   */
+  applicationRoot() {
+    const root = this.project.root;
+
+    if (this.project.isEmberCLIAddon()) {
+      return `${root}/tests/dummy`;
+    }
+
+    return root;
   },
 
   appOptions() {
@@ -38,6 +53,20 @@ module.exports = {
     const addonTree = this._super.treeForAddon.apply(this, arguments);
 
     return new MergeTrees([addonTree, `${__dirname}/vendor`]);
+  },
+
+  /**
+   * Ensure that the `styles` directory's JavaScript files are in the App tree
+   */
+  treeForApp(tree) {
+    const parentStylesDirectory = `${this.applicationRoot()}/app/styles`;
+
+    const styleDirectory = new Funnel(parentStylesDirectory, {
+      destDir: 'styles',
+      include: ['**/*.js']
+    });
+
+    return new MergeTrees([tree, styleDirectory]);
   },
 
   setupPreprocessorRegistry(type, registry) {

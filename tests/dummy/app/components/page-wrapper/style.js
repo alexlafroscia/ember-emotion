@@ -1,5 +1,5 @@
 import { css } from 'emotion';
-import { black, blue, pink } from '../../style/theme';
+import { black, blue, pink } from '../../styles/theme';
 
 export default css`
   background: linear-gradient(to bottom, ${blue} 0%, ${pink} 100%);

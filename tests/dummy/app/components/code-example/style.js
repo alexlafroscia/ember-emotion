@@ -1,6 +1,6 @@
 // components/code-example/style.js
 import { css } from 'emotion';
-import { blue, orange } from '../../style/theme';
+import { blue, orange } from '../../styles/theme';
 
 const spacer = '0.5em';
 

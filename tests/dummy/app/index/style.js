@@ -1,5 +1,5 @@
 import { css } from 'emotion';
-import { blue } from '../style/theme';
+import { blue } from '../styles/theme';
 
 export const wrapper = css`
   display: flex;

@@ -1,5 +1,5 @@
 import { injectGlobal } from 'emotion';
-import { black } from '../style/theme';
+import { black } from '../styles/theme';
 
 export function initialize() {
   injectGlobal`
