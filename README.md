@@ -53,16 +53,25 @@ All other exported classes can be access through the `emotion-class` helper in t
 
 For more usage information, [check out the wiki](https://github.com/alexlafroscia/ember-emotion/wiki).
 
-## Configure emotion's babel plugin
+## Configuration Options
 
-Many additional options are supported, optionally, via [babel-plugin-emotion][babel-plugin-emotion].  By default, all options are disabled with exception to whitespace trimming (default).
+### `injectMixin` (default: `true`)
 
-Example configuration:
+By default, the mixin is injected into all `Component` and `Controller` objects. However, if you'd rather inject it manually into just the classes that need it, you can disable the automatic injection with the `injectMixin` property
+
+### `babel` (default: see `babel-plugin-emotion` docs)
+
+Many additional features are supported, optionally, via [babel-plugin-emotion][babel-plugin-emotion].  By default, all options are disabled with exception to whitespace trimming (default).
+
+## Example configuration
+
+Example configuration (equivalent to the default):
 
 ```js
 /* ember-cli-build.js */
 let app = new EmberApp(defaults, {
   emotion: {
+    injectMixin: true,
     babel: {
       hoist: false,
       sourceMap: false,
