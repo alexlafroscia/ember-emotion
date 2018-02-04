@@ -543,15 +543,15 @@ babel-plugin-ember-modules-api-polyfill@^2.3.0:
   dependencies:
     ember-rfc176-data "^0.3.0"
 
-babel-plugin-emotion@9.0.0-3, babel-plugin-emotion@^9.0.0-3:
-  version "9.0.0-3"
-  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-9.0.0-3.tgz#4a2293911c79b6cbea1c822e7ce7bb4635bc12d0"
+babel-plugin-emotion@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-emotion/-/babel-plugin-emotion-9.0.0.tgz#aa8491343fe8685b03b17e00be459c9a84eaf0df"
   dependencies:
     "@babel/helper-module-imports" "7.0.0-beta.32"
     babel-plugin-macros "^2.0.0"
     babel-plugin-syntax-jsx "^6.18.0"
     convert-source-map "^1.5.0"
-    emotion-utils "^9.0.0-3"
+    emotion-utils "^9.0.0"
     find-root "^1.1.0"
     source-map "^0.5.7"
     touch "^1.0.0"
@@ -1862,11 +1862,11 @@ cosmiconfig@^4.0.0:
     parse-json "^4.0.0"
     require-from-string "^2.0.1"
 
-create-emotion@^9.0.0-3:
-  version "9.0.0-3"
-  resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-9.0.0-3.tgz#875ab6a35325c3d6fe2f19edfa168d2e1ad04cf0"
+create-emotion@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/create-emotion/-/create-emotion-9.0.0.tgz#ad0f24002fccadb0e9c09c5ba55c672b22580bb1"
   dependencies:
-    emotion-utils "^9.0.0-3"
+    emotion-utils "^9.0.0"
     stylis "^3.3.2"
     stylis-rule-sheet "^0.0.5"
 
@@ -2485,16 +2485,16 @@ ember-try@^0.2.15:
     rsvp "^3.0.17"
     semver "^5.1.0"
 
-emotion-utils@^9.0.0-3:
-  version "9.0.0-3"
-  resolved "https://registry.yarnpkg.com/emotion-utils/-/emotion-utils-9.0.0-3.tgz#34acff4f47dfa753a67d006398bafbe9e4369f14"
+emotion-utils@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/emotion-utils/-/emotion-utils-9.0.0.tgz#e34099f6f8566d4f30932363cffbc29fbdcd3294"
 
-emotion@9.0.0-3:
-  version "9.0.0-3"
-  resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.0.0-3.tgz#abe6d4c8c44fdae7eda1da8594c0f91eebeb64d5"
+emotion@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.0.0.tgz#dfc5761f04658b4e315cfd3bb399320fb0190f27"
   dependencies:
-    babel-plugin-emotion "^9.0.0-3"
-    create-emotion "^9.0.0-3"
+    babel-plugin-emotion "^9.0.0"
+    create-emotion "^9.0.0"
 
 encodeurl@~1.0.1:
   version "1.0.1"
