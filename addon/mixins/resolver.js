@@ -18,7 +18,14 @@ export default Mixin.create({
     try {
       return require(moduleName, null, null, true);
     } catch (e) {
-      return {};
+      if (
+        e.message ===
+        'Could not find module `undefined` imported from `(require)`'
+      ) {
+        return {};
+      }
+
+      throw e;
     }
   }
 });
