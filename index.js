@@ -6,6 +6,11 @@ const VersionChecker = require('ember-cli-version-checker');
 
 const HtmlbarsPlugin = require('./lib/htmlbars-plugin');
 
+const DEFAULT_EMOTION_OPTIONS = {
+  injectMixin: true,
+  babel: {}
+};
+
 module.exports = {
   name: 'ember-emotion',
 
@@ -35,6 +40,12 @@ module.exports = {
     );
   },
 
+  emotionOptions() {
+    const emotion = this.appOptions().emotion;
+
+    return Object.assign({}, DEFAULT_EMOTION_OPTIONS, emotion);
+  },
+
   included() {
     this._super.included.apply(this, arguments);
 
@@ -42,17 +53,23 @@ module.exports = {
       using: [{ transformation: 'amd', as: 'emotion' }]
     });
 
-    let opts = this.appOptions();
+    const opts = this.appOptions();
     opts.babel = opts.babel || {};
     opts.babel.plugins = opts.babel.plugins || [];
-    let emotion = opts.emotion || {};
-    opts.babel.plugins.push(['emotion', emotion.babel || {}]);
+
+    opts.babel.plugins.push(['emotion', this.emotionOptions().babel]);
   },
 
   treeForAddon() {
     const addonTree = this._super.treeForAddon.apply(this, arguments);
 
-    return new MergeTrees([addonTree, `${__dirname}/vendor`]);
+    if (this.emotionOptions().injectMixin) {
+      return new MergeTrees([addonTree, `${__dirname}/vendor`]);
+    }
+
+    return new Funnel(addonTree, {
+      exclude: [`${this.name}/extensions.js`]
+    });
   },
 
   /**
