@@ -65,23 +65,36 @@ The component background will be grey.
   ```
 
   By using the `computed` function to define your CSS block, two features are unlocked. Arguments passed to `computed` (like `hasError` above) are dependent keys just like in an Ember computed property definition. Functions embedded in the CSS definition are passed the context of the component as the first argument, so you can base your CSS off of the state. In the example above, any time `hasError` changes, the function will be called again and `red` or `black` will be set as the text color accordingly. This provides an alternative to the "normal" approach of doing this logic in the template to define different classes manually based on the state. Instead, you can allow Ember and Emotion to do that logic for you.
-  
+
   If the state you care about is present initially and will never change, you can also just use the `computed` function as a template tag directly and define no dependent keys, like so:
-  
+
   ```javascript
   import { computed } from 'ember-emotion';
-  
+
   export default computed`
     padding: ${ctx => ctx.get('paddingAmount')}
   `;
   ```
-  
+
   Note that this will not be re-computed should `paddingAmount` be changed.
 </details>
 
 <details>
   <summary>FastBoot Support</summary>
   FastBoot is supported out-of-the-box with no additional work required from you as the user. The initial CSS definition will be computed on the server, and the styles required for that initial paint injected into the HTML payload sent to the browser. Those initial values will also be hydrated into `emotion` before the first render, which will avoid those classes from being defined a second time by `emotion` when the first paint happens in the browser.
+</details>
+
+<details>
+  <summary>Global styles</summary>
+  Although an anti-pattern, it's sometimes useful to inject global styles, such as removing default styling from `body` or `html`. `emotion` provides the `injectGlobal` function for this, but for it to work with FastBoot it must be called at the right time.
+
+  To make this easier, this addon provides a `global-styles` blueprint that can be used to generate the appropriate instance initializer. You can run:
+
+  ```bash
+  ember generate global-styles __name__of__initializer__
+  ```
+
+  where `__name__of__initializer__` would be replaced by whatever you want to call this file, and you'll get an initializer pre-configured to execute at the right time. You can simply add to the `injectGlobals` usage provided there and everything else will be taken care of.
 </details>
 
 ## Configuration Options
