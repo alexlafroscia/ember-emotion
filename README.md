@@ -132,6 +132,7 @@ const app = new EmberApp(defaults, {
 ## Caveats
 
 - You _must_ have a `component.js` or `controller.js` file in your pod for the `emotion` styles to work, even if it just re-exports the default implementation
+- Even if it's empty, you must leave your `app.css` file in place (for now). The build will break without it.
 
 [emotion]: https://github.com/emotion-js/emotion
 [emotion-object-styles]: https://emotion.sh/docs/object-styles
