@@ -27,7 +27,7 @@ Make sure that the changes to your `resolver.js` file were applied; your resolve
 To start using `ember-emotion`, add a `style.js` file within a `Component` or `Controller` pod. Each named export can be accessed through the `emotion-class` helper in the pod's template. The default export, for `Component` pods, is merged into the `classNames` property automatically
 
 ```javascript
-// components/foo-bar/styles.js
+// components/foo-bar/style.js
 import { css } from 'emotion';
 
 export default css`

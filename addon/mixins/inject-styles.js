@@ -83,7 +83,7 @@ export default Mixin.create({
   },
 
   /**
-   * The contents of the `styles.js` that corresponds to this module
+   * The contents of the `style.js` that corresponds to this module
    *
    * Tries to look them up from the registry if possible, to avoid walking the total set up
    * registered modules more than necessary
