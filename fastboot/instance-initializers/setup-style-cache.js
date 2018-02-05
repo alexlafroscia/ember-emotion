@@ -24,7 +24,7 @@ export function initialize(application) {
       style.appendChild(document.createTextNode(css));
     }
 
-    // Put IDs into showboe for re-hydration
+    // Put IDs into shoebox for re-hydration
     shoebox.put(
       FASTBOOT_STYLE_CACHE_NAME,
       Object.keys(emotion.caches.inserted)
