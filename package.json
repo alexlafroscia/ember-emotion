@@ -1,6 +1,6 @@
 {
   "name": "ember-emotion",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Work with emotion.js in Ember",
   "keywords": [
     "ember-addon",
