@@ -35,6 +35,16 @@ matrix:
   allow_failures:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
+stages:
+  - test
+  - name: release
+    if: branch = master
+
+jobs:
+  include:
+    - stage: release
+      script: yarn semantic-release
+
 script:
   - yarn lint:js
   # Usually, it's ok to finish the test scenario without reverting
