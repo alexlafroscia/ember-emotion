@@ -17,7 +17,13 @@ export const red = css`
   color: red;
 `;
 
+/* eslint-disable prettier/prettier */
 export const excessiveWhitespaceClass = css`
   background-color: grey;
+
+
+
+
   padding: 1em;
 `;
+/* eslint-enable prettier/prettier */

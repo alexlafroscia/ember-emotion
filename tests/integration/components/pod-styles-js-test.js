@@ -1,6 +1,8 @@
-import emotion from 'emotion';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { moduleForComponent, test } from 'ember-qunit';
+import emotion from 'emotion';
 
 import * as allStyles from 'dummy/components/pod-styles-js/style';
 
@@ -10,32 +12,32 @@ const {
   excessiveWhitespaceClass
 } = allStyles;
 
-moduleForComponent('pod-styles-js', 'Integration | Component | pod styles', {
-  integration: true
-});
+module('Integration | Component | pod styles', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it sets the default exported class on the root element', function(assert) {
-  this.render(hbs`{{pod-styles-js classNames='foobar'}}`);
+  test('it sets the default exported class on the root element', async function(assert) {
+    await render(hbs`
+      {{pod-styles-js data-test-element='' classNames='foobar'}}
+    `);
 
-  assert.ok(
-    this.$('div').hasClass(componentClassName),
-    'It has the default exported class'
-  );
-  assert.ok(
-    this.$('div').hasClass('foobar'),
-    'It has class set from the properties'
-  );
-});
+    assert
+      .dom('[data-test-element]')
+      .hasClass(componentClassName, 'It has the default exported class');
+    assert
+      .dom('[data-test-element]')
+      .hasClass('foobar', 'It has class set from the properties');
+  });
 
-test('it exposes other exports as properties', function(assert) {
-  this.render(hbs`{{pod-styles-js}}`);
+  test('it exposes other exports as properties', async function(assert) {
+    await render(hbs`{{pod-styles-js}}`);
 
-  assert.ok(this.$('p').hasClass(paragraph));
-});
+    assert.dom('p').hasClass(paragraph);
+  });
 
-test('it strips whitespacing', function(assert) {
-  assert.equal(
-    emotion.caches.registered[excessiveWhitespaceClass],
-    'background-color:grey;padding:1em;'
-  );
+  test('it strips whitespacing', function(assert) {
+    assert.equal(
+      emotion.caches.registered[excessiveWhitespaceClass],
+      'background-color:grey;padding:1em;label:excessiveWhitespaceClass;'
+    );
+  });
 });

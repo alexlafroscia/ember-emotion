@@ -1,16 +1,14 @@
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent(
-  'without-emotion',
-  'Integration | Component | component without emotion',
-  {
-    integration: true
-  }
-);
+module('Integration | Component | component without emotion', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it does not blow up when there are no emotion styles for the component', function(assert) {
-  assert.expect(0);
+  test('it does not blow up when there are no emotion styles for the component', async function(assert) {
+    assert.expect(0);
 
-  this.render(hbs`{{without-emotion}}`);
+    await render(hbs`{{without-emotion}}`);
+  });
 });

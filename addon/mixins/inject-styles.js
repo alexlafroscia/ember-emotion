@@ -52,7 +52,7 @@ function computeStyles() {
 
 export default Mixin.create({
   init() {
-    this._super();
+    this._super(...arguments);
 
     // Get all of the dependent keys from the style definition
     const dependentKeys = Object.values(lookupStyles.call(this)).reduce(

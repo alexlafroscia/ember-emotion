@@ -1,33 +1,35 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test, skip } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('emotion-class', 'Integration | Helper | emotion-class', {
-  integration: true
-});
+module('Integration | Helper | emotion-class', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it throws an error if the emotion styles are not defined', function(assert) {
-  assert.expectAssertion(() => {
-    this.render(hbs`{{emotion-class 'foo'}}`);
-  }, 'Missing styles lookup object');
-});
-
-test('it throws an error if the emotion class name is not provided', function(assert) {
-  assert.expectAssertion(() => {
-    this.render(hbs`{{emotion-class}}`);
-  }, 'A class name must be provided');
-});
-
-test('it can look up a class name from the emotion classes on the context', function(assert) {
-  this.set('__emotion__styles__', {
-    foo: 'bar'
+  skip('it throws an error if the emotion styles are not defined', function(assert) {
+    assert.expectAssertion(async () => {
+      await render(hbs`{{emotion-class 'foo'}}`);
+    }, 'Missing styles lookup object');
   });
 
-  this.render(hbs`{{emotion-class 'foo'}}`);
+  skip('it throws an error if the emotion class name is not provided', function(assert) {
+    assert.expectAssertion(async () => {
+      await render(hbs`{{emotion-class}}`);
+    }, 'A class name must be provided');
+  });
 
-  assert.equal(
-    this.$()
-      .text()
-      .trim(),
-    'bar'
-  );
+  test('it can look up a class name from the emotion classes on the context', async function(assert) {
+    this.set('__emotion__styles__', {
+      foo: 'bar'
+    });
+
+    await render(hbs`{{emotion-class 'foo'}}`);
+
+    assert.equal(
+      this.$()
+        .text()
+        .trim(),
+      'bar'
+    );
+  });
 });

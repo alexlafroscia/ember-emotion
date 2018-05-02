@@ -1,13 +1,13 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 import * as originalStylesModule from 'dummy/components/pod-styles-js/style';
 
-moduleForComponent('pod-styles-js', 'Unit | Component | pod-styles-js', {
-  needs: ['style:components/pod-styles-js'],
-  unit: true
-});
+module('Unit | Component | pod-styles-js', function(hooks) {
+  setupTest(hooks);
 
-test('it can look up the right styles module', function(assert) {
-  const instance = this.subject();
+  test('it can look up the right styles module', function(assert) {
+    const instance = this.owner.lookup('component:pod-styles-js');
 
-  assert.deepEqual(instance.get('__emotion__styles__'), originalStylesModule);
+    assert.deepEqual(instance.get('__emotion__styles__'), originalStylesModule);
+  });
 });
