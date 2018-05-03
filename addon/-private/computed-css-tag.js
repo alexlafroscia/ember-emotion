@@ -14,9 +14,9 @@ export default function createTag(...dependentKeys) {
       createStyles(context) {
         return css(
           strings,
-          args.map(arg => {
+          ...args.map(arg => {
             if (typeof arg === 'function') {
-              arg = arg(context);
+              return arg(context);
             }
 
             return arg;
