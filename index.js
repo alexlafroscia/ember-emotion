@@ -93,7 +93,7 @@ module.exports = {
     }
 
     registry.add('htmlbars-ast-plugin', {
-      name: 'ember-css-modules',
+      name: 'ember-emotion',
       plugin: HtmlbarsPlugin.forEmberVersion(this.checker.forEmber().version),
       baseDir() {
         return __dirname;
