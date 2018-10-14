@@ -70,8 +70,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "loader.js": "^4.7.0",
     "prettier": "^1.12.1",
-    "qunit-dom": "^0.7.1",
-    "semantic-release": "^15.2.0"
+    "qunit-dom": "^0.7.1"
   },
   "peerDependencies": {
     "ember-cli": ">= 2.15.0"

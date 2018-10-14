@@ -18,12 +18,6 @@ env:
     # See https://git.io/vdao3 for details.
     - JOBS=1
 
-stages:
-  - Test
-  - Additional Tests
-  - name: Release
-    if: branch = master
-
 jobs:
   fail_fast: true
   allow_failures:
@@ -48,10 +42,6 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-
-    # automatically cut releases from `master`
-    - stage: release
-      script: yarn semantic-release
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
