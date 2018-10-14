@@ -10,6 +10,6 @@ module('Integration | Component | tagless component', function(hooks) {
   test('it can work with a tagless component', async function(assert) {
     await render(hbs`{{tagless-component}}`);
 
-    assert.ok(this.$('p').hasClass(allStyles.blue));
+    assert.dom('p').hasClass(allStyles.blue);
   });
 });

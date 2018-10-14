@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
+import { stylesFor } from 'ember-emotion/test-support';
 import hbs from 'htmlbars-inline-precompile';
 
 const red = 'rgb(255, 0, 0)';
@@ -11,8 +12,10 @@ module('Integration | Component | computed styles', function(hooks) {
   test('it can compute a CSS definition without a dependent key', async function(assert) {
     await render(hbs`{{computed-styles color='blue'}}`);
 
+    const style = await stylesFor('p');
+
     assert.equal(
-      this.$('p').css('border-color'),
+      style['border-color'],
       red,
       'paragraph has the computed border color'
     );
@@ -25,13 +28,15 @@ module('Integration | Component | computed styles', function(hooks) {
       {{computed-styles color=color size='1000'}}
     `);
 
+    const style = await stylesFor('p');
+
     assert.equal(
-      this.$('p').css('color'),
+      style['color'],
       'rgb(0, 0, 255)',
       'paragraph is initially blue'
     );
     assert.equal(
-      this.$('p').css('font-size'),
+      style['font-size'],
       '1000px',
       'header has the right font size'
     );
@@ -39,7 +44,7 @@ module('Integration | Component | computed styles', function(hooks) {
     this.set('color', 'red');
 
     assert.equal(
-      this.$('p').css('color'),
+      style['color'],
       red,
       'css updates with the dependent property'
     );

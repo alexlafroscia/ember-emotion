@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
+import { stylesFor } from 'ember-emotion/test-support';
 import hbs from 'htmlbars-inline-precompile';
 import { css } from 'emotion';
 
@@ -14,7 +15,9 @@ module('Integration | Helper | css', function(hooks) {
       </p>
     `);
 
-    assert.equal(this.$('p').css('color'), 'rgb(255, 0, 0)');
+    const styles = await stylesFor('p');
+
+    assert.equal(styles['color'], 'rgb(255, 0, 0)');
   });
 
   test('it can compose multiple positional params', async function(assert) {
@@ -37,8 +40,10 @@ module('Integration | Helper | css', function(hooks) {
       </p>
     `);
 
-    assert.equal(this.$('p').css('color'), 'rgb(255, 0, 0)');
-    assert.equal(this.$('p').css('backgroundColor'), 'rgb(0, 0, 255)');
+    const styles = await stylesFor('p');
+
+    assert.equal(styles['color'], 'rgb(255, 0, 0)');
+    assert.equal(styles['backgroundColor'], 'rgb(0, 0, 255)');
   });
 
   test('it works with the `emotion-class` helper', async function(assert) {
@@ -57,7 +62,9 @@ module('Integration | Helper | css', function(hooks) {
       </p>
     `);
 
-    assert.equal(this.$('p').css('color'), 'rgb(255, 0, 0)');
-    assert.equal(this.$('p').css('backgroundColor'), 'rgb(0, 0, 255)');
+    const styles = await stylesFor('p');
+
+    assert.equal(styles['color'], 'rgb(255, 0, 0)');
+    assert.equal(styles['backgroundColor'], 'rgb(0, 0, 255)');
   });
 });
