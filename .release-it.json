@@ -1,0 +1,9 @@
+{
+  "github": {
+    "release": true
+  },
+  "increment": "conventional:angular",
+  "src": {
+    "tagName": "v%s"
+  }
+}

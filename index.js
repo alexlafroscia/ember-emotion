@@ -12,7 +12,7 @@ const DEFAULT_EMOTION_OPTIONS = {
 };
 
 module.exports = {
-  name: 'ember-emotion',
+  name: require('./package').name,
 
   init() {
     this._super.init && this._super.init.apply(this, arguments);

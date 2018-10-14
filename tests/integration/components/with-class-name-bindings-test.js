@@ -10,19 +10,21 @@ module('Integration | Component | with class name bindings', function(hooks) {
   test('it does not break compatibility with class name bindings', async function(assert) {
     this.set('enabled', false);
 
-    await render(hbs`{{with-class-name-bindings enabled=enabled}}`);
+    await render(hbs`
+      {{with-class-name-bindings data-test-component='' enabled=enabled}}
+    `);
 
-    assert.ok(
-      this.$('div').hasClass(allStyles.default),
-      'Has the default exported class'
-    );
-    assert.notOk(
-      this.$('div').hasClass('enabled'),
-      'Does not have the bound class'
-    );
+    assert
+      .dom('[data-test-component]')
+      .hasClass(allStyles.default, 'Has the default exported class');
+    assert
+      .dom('[data-test-component]')
+      .doesNotHaveClass('enabled', 'Does not have the bound class');
 
     this.set('enabled', true);
 
-    assert.ok(this.$('div').hasClass('enabled'), 'Has the bound class');
+    assert
+      .dom('[data-test-component]')
+      .hasClass('enabled', 'Has the bound class');
   });
 });

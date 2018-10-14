@@ -25,11 +25,6 @@ module('Integration | Helper | emotion-class', function(hooks) {
 
     await render(hbs`{{emotion-class 'foo'}}`);
 
-    assert.equal(
-      this.$()
-        .text()
-        .trim(),
-      'bar'
-    );
+    assert.dom().hasText('bar');
   });
 });
