@@ -1,6 +1,7 @@
 {
   "name": "ember-emotion",
   "description": "Work with emotion.js in Ember",
+  "version": "4.0.3",
   "keywords": ["ember-addon", "style", "emotion", "scoped-styles"],
   "repository": {
     "type": "git",
