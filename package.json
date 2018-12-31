@@ -34,11 +34,11 @@
   "dependencies": {
     "babel-plugin-emotion": "^10.0.5",
     "broccoli-funnel": "^2.0.1",
-    "broccoli-merge-trees": "^3.0.0",
+    "broccoli-merge-trees": "^3.0.2",
     "ember-cli-babel": "^7.2.0",
     "ember-cli-version-checker": "^2.1.2",
     "emotion": "^10.0.5",
-    "semver": "^5.4.1"
+    "semver": "^5.6.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.6.3",
