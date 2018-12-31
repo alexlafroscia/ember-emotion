@@ -36,7 +36,7 @@ module('Integration | Component | pod styles', function(hooks) {
 
   test('it strips whitespacing', function(assert) {
     assert.equal(
-      emotion.caches.registered[excessiveWhitespaceClass],
+      emotion.cache.registered[excessiveWhitespaceClass],
       'background-color:grey;padding:1em;label:excessiveWhitespaceClass;'
     );
   });

@@ -12,7 +12,7 @@ export function initialize(application) {
   // Generate the styles that we need to inject into the page
   scheduleOnce('afterRender', function() {
     const style = document.createElement('style');
-    const css = Object.values(emotion.caches.inserted).reduce(
+    const css = Object.values(emotion.cache.inserted).reduce(
       (acc, style) => acc + style,
       ''
     );
