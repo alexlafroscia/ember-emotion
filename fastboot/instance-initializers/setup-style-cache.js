@@ -25,10 +25,7 @@ export function initialize(application) {
     }
 
     // Put IDs into shoebox for re-hydration
-    shoebox.put(
-      FASTBOOT_STYLE_CACHE_NAME,
-      Object.keys(emotion.caches.inserted)
-    );
+    shoebox.put(FASTBOOT_STYLE_CACHE_NAME, Object.keys(emotion.cache.inserted));
 
     document.head.appendChild(style);
   });

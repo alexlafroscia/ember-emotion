@@ -50,7 +50,7 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     this.import('node_modules/emotion/dist/emotion.umd.min.js', {
-      using: [{ transformation: 'amd', as: 'emotion' }]
+      using: [{ transformation: 'amd', as: 'emotion-umd' }]
     });
 
     const opts = this.appOptions();

@@ -10,7 +10,9 @@ export function initialize(appInstance) {
     const shoebox = get(fastboot, 'shoebox');
     const emotionIds = shoebox.retrieve(FASTBOOT_STYLE_CACHE_NAME);
 
-    hydrate(emotionIds);
+    if (emotionIds) {
+      hydrate(emotionIds);
+    }
   }
 }
 
