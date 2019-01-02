@@ -2,12 +2,7 @@
   "name": "ember-emotion",
   "description": "Work with emotion.js in Ember",
   "version": "4.0.3",
-  "keywords": [
-    "ember-addon",
-    "style",
-    "emotion",
-    "scoped-styles"
-  ],
+  "keywords": ["ember-addon", "style", "emotion", "scoped-styles"],
   "repository": {
     "type": "git",
     "url": "https://github.com/alexlafroscia/ember-emotion.git"
@@ -23,13 +18,14 @@
   "homepage": "http://alexlafroscia.com/ember-emotion/",
   "scripts": {
     "build": "ember build",
-    "deploy": "ember build && ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" && git push origin gh-pages:gh-pages",
+    "deploy":
+      "ember build && ember github-pages:commit --message \"Deploy gh-pages from commit $(git rev-parse HEAD)\" && git push origin gh-pages:gh-pages",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
     "test": "ember test",
     "test:all": "ember try:each",
-    "release": "release-it"
+    "release": "standard-version"
   },
   "dependencies": {
     "babel-plugin-emotion": "^10.0.5",
@@ -74,7 +70,7 @@
     "loader.js": "^4.7.0",
     "prettier": "^1.15.3",
     "qunit-dom": "^0.8.0",
-    "release-it": "^7.6.1"
+    "standard-version": "^4.4.0"
   },
   "peerDependencies": {
     "ember-cli": ">= 2.15.0"
@@ -85,8 +81,6 @@
   "ember-addon": {
     "configPath": "tests/dummy/config",
     "demoURL": "http://alexlafroscia.com/ember-emotion",
-    "fastbootDependencies": [
-      "emotion"
-    ]
+    "fastbootDependencies": ["emotion"]
   }
 }
