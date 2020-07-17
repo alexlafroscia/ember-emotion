@@ -74,7 +74,7 @@
     "loader.js": "^4.7.0",
     "prettier": "^1.15.3",
     "qunit-dom": "^0.8.0",
-    "standard-version": "^4.4.0"
+    "standard-version": "^8.0.1"
   },
   "peerDependencies": {
     "ember-cli": ">= 2.15.0"
